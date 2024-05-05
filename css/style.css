@@ -1,0 +1,323 @@
+/* Custom variables */
+:root {
+  /* Colors */
+  --primary-color: #11101d;
+  --secondary-color: #1d1b31;
+
+  --white-type-zero: #ffffff;
+  --white-type-one: #f0f0f0;
+  --white-type-two: #ececec;
+
+  --black-type-zero: #000000;
+  --black-type-one: #202020;
+  --black-type-two: #292828;
+
+  --gray-dark: #3a3b3c;
+  --gray: #808080;
+  --gray-light: #d3d3d3;
+
+  --border: #272727;
+  --light-Border: #6b6b6b;
+
+  --text-light: #b1b7c0;
+  --text-dark: #282a2d;
+  --TextDisabled: #606874;
+
+  /* fonts */
+  --main-font: "Poppins", sans-serif;
+}
+
+/* Resets */
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--white-type-zero);
+  color: var(--black-type-zero);
+  font-family: var(--main-font);
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Navbar start */
+.sidebar {
+  height: 100%;
+  width: 78px;
+  background: var(--primary-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 6px 14px;
+  transition: all 0.5s ease;
+}
+
+.sidebar.active {
+  width: 240px;
+}
+
+.sidebar .logo-container .logo {
+  color: var(--white-type-zero);
+  display: flex;
+  height: 50px;
+  width: 100%;
+  align-items: center;
+  opacity: 0;
+  white-space: nowrap;
+  transition: all 0.5s ease-out;
+}
+
+.sidebar.active .logo-container .logo {
+  opacity: 1;
+  pointer-events: none;
+}
+
+.logo-container .logo ion-icon {
+  font-size: 28px;
+  margin-right: 5px;
+}
+
+.logo-container .logo .logo-name {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.sidebar #btn {
+  color: var(--white-type-zero);
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  height: 25px;
+  width: 25px;
+  text-align: center;
+  line-height: 50px;
+  transform: translateX(-50%);
+  cursor: pointer;
+}
+
+.sidebar.active #btn {
+  left: 90%;
+}
+
+.sidebar ul {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sidebar ul li {
+  position: relative;
+  height: 50px;
+  width: 100%;
+  list-style: none;
+  margin: 0 5px;
+  line-height: 50px;
+}
+
+.sidebar ul li .tooltip {
+  position: absolute;
+  top: 0;
+  left: 122px;
+  height: 35px;
+  width: 122px;
+  transform: translate(-45%, -50%);
+  background-color: var(--white-type-zero);
+  line-height: 35px;
+  border-radius: 6px;
+  text-align: center;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  pointer-events: none;
+  display: block;
+}
+
+.sidebar.active ul li .tooltip {
+  display: none;
+}
+
+.sidebar ul li:hover .tooltip {
+  transition: all 0.5s ease;
+  top: 50%;
+  opacity: 1;
+}
+
+.sidebar ul li .search-icon {
+  position: absolute;
+  z-index: 99;
+  color: var(--white-type-zero);
+  cursor: pointer;
+}
+
+.sidebar ul li:hover .search-icon {
+  color: var(--primary-color);
+}
+.sidebar.active ul li:hover .search-icon {
+  color: var(--white-type-zero);
+}
+
+.sidebar ul li input {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  border-radius: 12px;
+  outline: none;
+  border: none;
+  background-color: var(--secondary-color);
+  color: var(--secondary-color);
+  padding-left: 50px;
+  font-size: 16px;
+}
+
+.sidebar.active ul li input {
+  color: var(--white-type-zero);
+}
+
+.sidebar ul li:hover input {
+  background-color: var(--white-type-zero);
+}
+
+.sidebar.active ul li input {
+  background-color: var(--secondary-color);
+}
+
+.sidebar ul li a {
+  color: var(--white-type-zero);
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.4s ease;
+  border-radius: 12px;
+  white-space: nowrap;
+}
+
+.sidebar ul li a:hover {
+  color: var(--primary-color);
+  background-color: var(--white-type-zero);
+}
+
+.sidebar ul li ion-icon {
+  height: 50px;
+  min-width: 25px;
+  border-radius: 12px;
+  line-height: 50px;
+  margin: 0 12px;
+}
+
+.sidebar ul li a .links-name {
+  font-size: 16px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sidebar.active ul li a .links-name {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.sidebar .profile-container {
+  position: absolute;
+  width: 100%;
+  color: var(--white-type-zero);
+  bottom: 0;
+  left: 0;
+  background-color: var(--secondary-color);
+  padding-bottom: 5px;
+}
+
+.sidebar .profile-container .profile .profile-details {
+  position: relative;
+  padding: 10px 6px;
+  height: 60px;
+  opacity: 0;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.sidebar.active .profile-container .profile .profile-details {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.profile .profile-details {
+  display: flex;
+  align-items: center;
+}
+
+.profile .profile-details img {
+  height: 45px;
+  width: 45px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.profile .profile-details .name-job {
+  margin-left: 10px;
+  color: var(--text-light);
+}
+
+.profile-details .name-job .name {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.profile-details .name-job .job-title {
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.profile #log-out {
+  position: absolute;
+  left: 50%;
+  bottom: 12px;
+  transform: translateX(-50%) rotate(180deg);
+  min-width: 30px;
+  line-height: 50px;
+  font-size: 30px;
+  border-radius: 12px;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.sidebar.active .profile #log-out {
+  left: 88%;
+}
+
+.profile #log-out:hover {
+  transition: all 0.4s ease-in-out;
+  background-color: var(--white-type-zero);
+  color: var(--primary-color);
+}
+
+/* Navbar end */
+
+/* Main start */
+.main-container {
+  position: relative;
+  height: 100%;
+  width: calc(100% - 78px);
+  left: 78px;
+  transition: all 0.5s ease;
+}
+
+.main-container .title {
+  font-size: 80px;
+  font-weight: 700;
+  margin: 12px;
+  color: var(--secondary-color);
+  text-align: center;
+}
+
+.sidebar.active ~ .main-container {
+  width: calc(100% - 240px);
+  left: 240px;
+}
+/* Main end */
