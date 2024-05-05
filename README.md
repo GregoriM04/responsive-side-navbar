@@ -2,4 +2,4 @@
 
 ## This is a simple Navbar component
 
-Some text will come here...
+Nothing too fancy, just a side navigation bar to keep things on track. This component is not optimized for a mobile devices, but let's be honest, we don't manage a Dashboard site on such devices regularly.
